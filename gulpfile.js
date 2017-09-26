@@ -4,24 +4,29 @@ const babel = require('gulp-babel')
 const sass = require('gulp-sass')
 const browserify = require('browserify')
 const source = require('vinyl-source-stream')
+const buffer = require('vinyl-buffer')
+const sourcemaps = require('gulp-sourcemaps')
 
-//transform es6
-gulp.task('es6',() => (
-    gulp.src('src/js/*.js')
-        .pipe(babel())
-        .pipe(gulp.dest('dist/compiled/js'))
+
+//transform es6 and bundle it
+gulp.task('js',() => (
+    browserify({
+        entries: "src/js/main.js",
+        extensions: ['.js','.json'],
+        debug: true
+    })
+        .transform("babelify",{presets: ["env"]})
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest("dist/compiled/js"))
 ))
 
-//bundle the js
-gulp.task('browserify',() => (
-    browserify('dist/compiled/js/main.js').bundle()
-    .pipe(source('bundle.js'))
-    .pipe(gulp.dest('dist/compiled/js'))
-))
 
 //watch for js changes
 gulp.task('watch-js',() => (
-    gulp.watch('src/js/*.js',['es6','browserify'])
+    gulp.watch('src/js/main.js',['js'])
 ))
 
 //copy html
@@ -47,6 +52,6 @@ gulp.task('watch-sass',() => (
     gulp.watch('src/scss/**/*.scss',['sass'])
 ))
    
-gulp.task('compile',['HTML','es6','browserify','sass'])
+gulp.task('compile',['HTML', 'js', 'sass'])
 
 gulp.task('watcher',['watch-js', 'watch-HTML', 'watch-sass'])
