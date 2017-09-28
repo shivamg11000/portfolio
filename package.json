@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build-for-development": "gulp compile ",
-    "build-for-deploy": "gulp build-for-deploy",
+    "build-for-deploy": "gulp compile && gulp build-for-deploy",
     "watch": "npm run build-for-development & wait && gulp watcher &",
     "start": "npm run watch && live-server --open=dist/compiled > /dev/null &"
   },

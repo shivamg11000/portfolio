@@ -88,4 +88,4 @@ gulp.task('minify-js',() => (
         .pipe(gulp.dest('dist/deploy/js'))
 ))
 
-gulp.task('build-for-deploy',['_copyHTML','prefix-minify-css','minify-js'])
+gulp.task('build-for-deploy',['compile','_copyHTML','prefix-minify-css','minify-js'])
