@@ -6,6 +6,8 @@ const browserify = require('browserify')
 const source = require('vinyl-source-stream')
 const buffer = require('vinyl-buffer')
 const sourcemaps = require('gulp-sourcemaps')
+const gutil = require('gulp-util')
+
 
 
 //transform es6 and bundle it
@@ -15,12 +17,13 @@ gulp.task('js',() => (
         extensions: ['.js','.json'],
         debug: true
     })
-        .transform("babelify",{presets: ["env"]})
-        .bundle()
+        .transform("babelify",{presets: ["env"]}).on('error',gutil.log)
+        .bundle().on('error',gutil.log)
         .pipe(source('bundle.js'))
         .pipe(buffer())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest("dist/compiled/js"))
+        
 ))
 
 
