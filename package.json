@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "gulp compile ",
-    "watch": "npm run compile & wait && gulp watcher &",
+    "build-for-development": "gulp compile ",
+    "build-for-deploy": "gulp build-for-deploy",
+    "watch": "npm run build-for-development & wait && gulp watcher &",
     "start": "npm run watch && live-server --open=dist/compiled > /dev/null &"
   },
   "keywords": [],
@@ -25,9 +26,12 @@
     "babelify": "^7.3.0",
     "browserify": "^14.4.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^7.0.0",
+    "gulp-clean-css": "^3.9.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
     "live-server": "^1.2.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"

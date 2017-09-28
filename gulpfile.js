@@ -58,3 +58,34 @@ gulp.task('watch-sass',() => (
 gulp.task('compile',['HTML', 'js', 'sass'])
 
 gulp.task('watcher',['watch-js', 'watch-HTML', 'watch-sass'])
+
+
+
+/****************************************************/
+//  build to deploy
+
+const autoPrefixer = require('gulp-autoprefixer')
+const uglify = require('gulp-uglify')
+const cleanCSS = require('gulp-clean-css')
+
+gulp.task('_copyHTML',() => (
+    gulp.src('dist/compiled/index.html')
+        .pipe(gulp.dest('dist/deploy'))
+))
+
+//prefix and minify the CSS
+gulp.task('prefix-minify-css',() => (
+    gulp.src('dist/compiled/css/*.css')
+        .pipe(autoPrefixer())
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(gulp.dest('dist/deploy/css'))
+))
+
+// minify the js 
+gulp.task('minify-js',() => (
+    gulp.src('dist/compiled/js/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/deploy/js'))
+))
+
+gulp.task('build-for-deploy',['_copyHTML','prefix-minify-css','minify-js'])
