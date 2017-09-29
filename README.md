@@ -3,4 +3,4 @@
 
 PORTFOLIO FOR ME
 
-https://shivamg.surge.sh
+https://shivam.surge.sh
