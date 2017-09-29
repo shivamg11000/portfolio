@@ -25,11 +25,12 @@ ul{
   ul{
     display: flex;
     justify-content: space-around;
-    width: 65%;
-    float: right;
+    max-width: 500px;
+    margin: 0 auto;
     li{
       color: #ffffff;
       cursor: pointer;
+      font-size: 20px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       font-weight: 100;
       letter-spacing: 1px;
@@ -308,41 +309,30 @@ ul{
 }
 
 footer{
+  * {box-sizing: border-box;}
   $backgroundColor: #222;
   $foregroundColor: white;
   $hoverColor: #00F081;
 
   background-color: $backgroundColor;
   padding: 10px 0;
-
-  display: flex;
-  flex-direction: row-reverse;
+  box-sizing: border-box;
   ul{
-    width: 65%;
-
+    width: 350px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
-    li{
-      .fa{
-        color: $foregroundColor;
-        cursor: pointer;
-      }
-      .fa-codepen{
-        background-color: $foregroundColor;
-        color: $backgroundColor;
-        border-radius: 10px;
-        padding: 6px;
-      }
-      .fa:hover{
-        color: $hoverColor;
-      }
-      .fa-codepen:hover{
-        background-color: $hoverColor;
-        color: $backgroundColor;
-      }
-
+    li .fa{
+      color: $foregroundColor;
+      border-radius: 100%;
+      transition: all 0.5s;
+    }
+    .fa:hover{
+      color: $hoverColor;
+      line-height: 0.7;
     }
   }
+
 }
 
 @media only screen and (max-width:767px){
@@ -366,10 +356,7 @@ footer{
     width: 100%;
   }
 
-  /* footer */
-  footer ul{
-    width: 100%;
-  }
+
 }
 
 @media only screen and (max-width:560px){
@@ -391,16 +378,15 @@ footer{
   }
 
   /* footer */
-  footer ul li{
-    .fa{
-      font-size: 40px;
-      padding: 0;
-    }
-    .fa-codepen{
-      font-size: 30px;
-      padding: 3px;
-    }
+  footer ul li .fa:hover{
+    line-height: 1;
   }
 
+}
 
+@media only screen and (max-width:400px){
+  footer ul{
+    width: 100%;
+    .fa{font-size: 25px;}
+  }
 }
