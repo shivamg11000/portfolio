@@ -149,6 +149,7 @@ ul{
 
       transition: all 0.3s ease-in;
       p{
+        user-select: none;
         color: white;
         text-align: center;
         padding: 20px;
@@ -179,6 +180,9 @@ ul{
          visibility: visible;
          background-color: rgba(0,0,0,0.7);
       }
+    > .project:hover{
+         transform: scale(1.05);
+    }  
     
     .project1{
       background-image: url('https://raw.githubusercontent.com/shivamg11000/images/master/tic-tac-toe.png');
@@ -204,7 +208,7 @@ ul{
 
 /* Lets connect  */
 #lets-connect{
-  background-color: #1E1E1E;
+  background-color: #2E2E2E;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23790098' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); 
   min-height: 100vh;
   padding: 150px 0;
@@ -269,18 +273,18 @@ ul{
           max-width: 65%;
           resize: none;
         }
-        textarea::placeholder{color: #aaa;}
+        textarea::placeholder{color: #aaa; font-size: 16px;}
         textarea:focus{ outline: none; border: 1px solid #aaa;}
         input{
           border: 1px solid #ddd;
           border-radius: 5px;
-          font-size: 20px;
+          font-size: 16px;
           margin: 10px 0;
           padding: 7px 10px;
           width: 330px;
           background-color: #eee;
         }
-        input::placeholder{color: #aaa;}
+        input::placeholder{color: #aaa; font-size: 16px;}
         input:focus {outline: none;border: 1px solid #aaa;}
         input[type="submit"]{
           box-sizing: border-box;
@@ -332,6 +336,7 @@ footer{
     justify-content: space-around;
     li .fa{
       color: $foregroundColor;
+      font-size: 40px;
       border-radius: 100%;
       transition: all 0.5s;
     }
@@ -389,12 +394,14 @@ footer{
   footer ul li .fa:hover{
     line-height: 1;
   }
+  footer ul li .fa{
+    font-size: 35px;
+  }
 
 }
 
 @media only screen and (max-width:400px){
   footer ul{
     width: 100%;
-    .fa{font-size: 25px;}
   }
 }
