@@ -20,6 +20,7 @@ ul{
   top: 0;
   width: 100%;
   background-color: rgba(0,0,0,0.85);
+  box-shadow: 0 2px 3px rgba(103,0,152,0.6);
   padding: 15px 0;
 
   ul{
@@ -48,7 +49,8 @@ ul{
 #landing{
   height: 100vh;
   max-height: 100vh;
-  background-color: #3E4E6B;
+  background-color: #530098;
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
@@ -94,8 +96,8 @@ ul{
 
 /*  show case/projects   */
 #showcase{
-  background-color: #00B9A2;
-  padding: 150px 0;
+  background-color: white;
+  padding: 100px 0;
 
   
   h1{
@@ -104,26 +106,32 @@ ul{
     text-align: center;
     width: 320px;
     font-size: 50px;
-    color: #D0195B;
+    color: #4792DE;
     font-weight: 100;
     font-family: 'Oxygen', sans-serif;
     letter-spacing: 5px;
     border-bottom: 1px solid rgba(0,0,0,0.15);
     transition: 0.3s all ease-in;
   }
-  h1:hover {border-bottom: 1px solid #F0397B;}
+  h1:hover {border-bottom: 1px solid #4792DE;}
   .projects{
     padding: 50px 0;
+    max-width: 1800px;
+    margin: 0 auto;
 
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     > .project{
       flex: 0 1 auto ;
+
       height: 250px;
       width: 350px;
       background-color: #313;
       margin: 30px 15px;
+      box-shadow: 0 10px 6px -6px rgba(0,0,0,0.5);
+
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -141,6 +149,7 @@ ul{
 
       transition: all 0.3s ease-in;
       p{
+        user-select: none;
         color: white;
         text-align: center;
         padding: 20px;
@@ -156,6 +165,7 @@ ul{
         border: 0;
         border-radius: 5px;
         padding: 5px;
+        background-color: white;
         cursor: pointer;
       }
       button:hover{ background-color: #aaa; }
@@ -167,9 +177,12 @@ ul{
       .fa:hover{ font-size: 43px; }  
     }
     > .project:hover .overlay{
-       visibility: visible;
-        background-color: rgba(0,0,0,0.7);
+         visibility: visible;
+         background-color: rgba(0,0,0,0.7);
       }
+    > .project:hover{
+         transform: scale(1.05);
+    }  
     
     .project1{
       background-image: url('https://raw.githubusercontent.com/shivamg11000/images/master/tic-tac-toe.png');
@@ -195,17 +208,16 @@ ul{
 
 /* Lets connect  */
 #lets-connect{
-  background-color: #0BDA7E; 
+  background-color: #2E2E2E;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23790098' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); 
   min-height: 100vh;
+  padding: 150px 0;
 
-  padding: 200px 0;
-
-  
   /* email -form */
   .email-form{
     width: 750px;
     margin: 0 auto;
-    border-radius: 20px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.4);
 
     display: flex;
     .desc{
@@ -214,20 +226,19 @@ ul{
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      background-color: #00C3A4;
+      background-color: #670098;
       div{
         text-align: center;
         .fa{
-          font-size: 50px;
-          font-weight: 100;
-          color: #2A5369;
+          font-size: 70px;
+          color: white;
         }
       }
       p{
         margin: 0;
         padding: 15px;
         text-align: center;
-        color: #2A5369;
+        color: white;
         font-weight: 100;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
       }
@@ -240,7 +251,8 @@ ul{
       h1{
         text-align: center;
         font-size: 50px;
-        color: #2A516A;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #333;
       }
 
       form{
@@ -261,18 +273,18 @@ ul{
           max-width: 65%;
           resize: none;
         }
-        textarea::placeholder{color: #aaa;}
+        textarea::placeholder{color: #aaa; font-size: 16px;}
         textarea:focus{ outline: none; border: 1px solid #aaa;}
         input{
           border: 1px solid #ddd;
           border-radius: 5px;
-          font-size: 20px;
+          font-size: 16px;
           margin: 10px 0;
           padding: 7px 10px;
           width: 330px;
           background-color: #eee;
         }
-        input::placeholder{color: #aaa;}
+        input::placeholder{color: #aaa; font-size: 16px;}
         input:focus {outline: none;border: 1px solid #aaa;}
         input[type="submit"]{
           box-sizing: border-box;
@@ -310,7 +322,7 @@ ul{
 
 footer{
   * {box-sizing: border-box;}
-  $backgroundColor: #222;
+  $backgroundColor: #507CE0;
   $foregroundColor: white;
   $hoverColor: #00F081;
 
@@ -324,6 +336,7 @@ footer{
     justify-content: space-around;
     li .fa{
       color: $foregroundColor;
+      font-size: 40px;
       border-radius: 100%;
       transition: all 0.5s;
     }
@@ -381,12 +394,14 @@ footer{
   footer ul li .fa:hover{
     line-height: 1;
   }
+  footer ul li .fa{
+    font-size: 35px;
+  }
 
 }
 
 @media only screen and (max-width:400px){
   footer ul{
     width: 100%;
-    .fa{font-size: 25px;}
   }
 }

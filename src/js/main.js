@@ -78,7 +78,7 @@ function validateEmail(email) {
 
 // AOS
 AOS.init({
-    duration: 500,
+    duration: 300,
     easing: 'ease-in',
 });
 
@@ -109,3 +109,4 @@ $connectBtn.click(function() {
         scrollTop: $letsConnect.offset().top+140
     }, timeTakenToScroll)
 })
+
